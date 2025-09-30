@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer className='bg-gray-900 text-white'>
@@ -14,17 +16,20 @@ export default function Footer() {
             <h3 className='text-base sm:text-lg font-semibold'>Quick Links</h3>
             <ul className='space-y-2'>
               <li>
-                <a href='/products' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
+                <Link
+                  href='/products'
+                  className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'
+                >
                   Products
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href='/checkout/cart'
                   className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'
                 >
                   Cart
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -33,24 +38,24 @@ export default function Footer() {
             <h3 className='text-base sm:text-lg font-semibold'>Customer Service</h3>
             <ul className='space-y-2'>
               <li>
-                <a href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
+                <Link href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
+                <Link href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
                   FAQ
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
+                <Link href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
                   Shipping
-                </a>
+                </Link>
               </li>
               <li>
-                <a href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
+                <Link href='#' className='text-gray-400 hover:text-white text-sm sm:text-base transition-colors'>
                   Returns
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

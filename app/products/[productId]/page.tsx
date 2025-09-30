@@ -4,15 +4,15 @@ import { useCart } from '@/src/context/CartContext';
 import largeData from '@/src/mock/large/products.json';
 import smallData from '@/src/mock/small/products.json';
 
-const productDetail = ({ params }: { params: Promise<{ productId: string }> }) => {
+const ProductDetail = ({ params }: { params: Promise<{ productId: string }> }) => {
   const resolvedParams = use(params);
   const data = [...largeData, ...smallData];
   const product = data.find((item) => item.id === resolvedParams.productId);
+  const { dispatch } = useCart();
+
   if (!product) {
     return <p>Product not Found</p>;
   }
-
-  const { dispatch } = useCart();
 
   return (
     <div className='min-h-screen'>
@@ -85,4 +85,4 @@ const productDetail = ({ params }: { params: Promise<{ productId: string }> }) =
   );
 };
 
-export default productDetail;
+export default ProductDetail;

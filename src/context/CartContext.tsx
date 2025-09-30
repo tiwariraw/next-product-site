@@ -94,18 +94,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 };
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const [state, dispatch] = useReducer(cartReducer, loadInitialState());
-
-  // Load initial cart data
-  useEffect(() => {
-    const savedCart = loadInitialState();
-    if (savedCart.items.length > 0) {
-      dispatch({ type: 'CLEAR_CART' });
-      savedCart.items.forEach((item) => {
-        dispatch({ type: 'ADD_ITEM', item });
-      });
-    }
-  }, []);
+  const [state, dispatch] = useReducer(cartReducer, null, loadInitialState);
 
   // Save to localStorage whenever cart changes
   useEffect(() => {

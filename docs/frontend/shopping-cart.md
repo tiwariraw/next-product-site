@@ -1,4 +1,8 @@
-# Shopping Cart Implementation Guide
+# Shopping Cart & Checkout Documentation
+
+## Overview
+
+This document describes the implementation of the shopping cart and checkout flow for the product site.
 
 ## Component and pages
 
@@ -13,6 +17,15 @@
 
 - Rect Context API and useReducer hook is used for shopping cart state management
 - `src/context/CartContext.tsx`.
+
+- **Persistence:**  
+  Cart contents are saved to `localStorage` to persist across sessions. On page load, the cart is initialized from storage.
+
+- **Checkout Process:**
+  1. **Cart Review:** View and update cart items.
+  2. **Shipping:** Enter shipping information with validation.
+  3. **Payment:** Enter payment details (mock Stripe integration).
+  4. **Confirmation:** Order summary and confirmation message.
 
 ### Cart Page (`/checkout/cart`)
 
@@ -29,7 +42,7 @@ What's interesting here:
 Found in `app/checkout/shipping/page.tsx`
 
 - Keep the form data in localStorage
-- form validation is handled
+- form validation is handled for required fields and correct formats
 
 ### Payment Integration (`/checkout/payment`)
 
@@ -48,3 +61,14 @@ The confirmation page (`app/checkout/confirmation/page.tsx`)
 - Sends confirmation email
 - Clears the cart
 - Stores order in localStorage for reference
+
+## File Locations
+
+- Cart logic: `context/CartContext.tsx`
+- Cart UI: `components/Cart.tsx`
+- Checkout flow: `pages/checkout.tsx`
+- Styles: `styles/globals.css`
+
+## Labels
+
+- `frontend`

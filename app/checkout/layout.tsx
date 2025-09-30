@@ -12,7 +12,7 @@ const CheckoutLayout = ({ children }: { children: React.ReactNode }) => {
     if (state.items.length === 0) {
       router.push('/products');
     }
-  }, [state.items.length]);
+  }, [state.items.length, router]);
 
   return (
     <div className='min-h-screen bg-gray-50'>

@@ -17,8 +17,11 @@ type ShippingForm = {
 export default function Shipping() {
   const router = useRouter();
   const [form, setForm] = useState<ShippingForm>(() => {
-    // Try to load saved shipping info
-    const saved = localStorage.getItem('shipping-info');
+    let saved;
+    if (typeof window !== 'undefined') {
+      saved = localStorage.getItem('shipping-info');
+    }
+
     return saved
       ? JSON.parse(saved)
       : {
@@ -57,7 +60,7 @@ export default function Shipping() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (validateForm()) {
+    if (typeof window !== 'undefined' && validateForm()) {
       localStorage.setItem('shipping-info', JSON.stringify(form));
       router.push('/checkout/payment');
     }
