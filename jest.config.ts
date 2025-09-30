@@ -1,6 +1,7 @@
 import type { Config } from 'jest';
 import { pathsToModuleNameMapper } from 'ts-jest';
-import { compilerOptions } from './tsconfig.json';
+
+const { compilerOptions } = require('./tsconfig.json');
 
 const config: Config = {
   setupFiles: ['<rootDir>/tests/setupJest.ts'],
